@@ -3,4 +3,4 @@
 
 !.gitignore
 !.bashrc
-!.config/nvim
+!*/.config/nvim
