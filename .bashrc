@@ -23,7 +23,7 @@ function git_branch() {
         printf "%s" "($(git branch 2> /dev/null | awk '/\*/{print $2}')) ";
     fi
 }
-PS1='\[\e[35m\]\u \[\e[0m\]in \[\e[36m\]\W \[\e[0m\]$(git_branch)> '
+PS1='\[\e[32m\]\u \[\e[0m\]in \[\e[33m\]\W \[\e[0m\]$(git_branch)> '
 
 # Aliases
 alias reset-software="killall gnome-software & rm -rf ~/.cache/gnome-software/"
