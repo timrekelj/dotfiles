@@ -25,6 +25,8 @@ function git_branch() {
 }
 PS1='\[\e[32m\]\u \[\e[0m\]in \[\e[33m\]\W \[\e[0m\]$(git_branch)> '
 
+PATH="~/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:$PATH"
+
 # Aliases
 alias reset-software="killall gnome-software & rm -rf ~/.cache/gnome-software/"
 alias src_rc='source ~/.bashrc'
