@@ -3,8 +3,6 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-output DP-3 disable
-output DP-2 disable
 
 ### Variables
 #
@@ -18,7 +16,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
+set $browser firefox
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -26,18 +25,17 @@ set $term foot
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
+output * bg ~/Pictures/Wallpapers/john-carmack.jpg fill
+
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output DP-3 disable
+output DP-2 disable
 
-input type:touchpad {
-    tap enabled
-    natural_scroll enabled
-}
 ### Idle configuration
 #
 # Example configuration:
@@ -64,6 +62,10 @@ input type:touchpad {
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
 
 ### Key bindings
 #
@@ -77,6 +79,9 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+space exec rofi -show drun
+
+    # Start firefox
+    bindsym $mod+Shift+Return exec $browser
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -100,7 +105,6 @@ input type:touchpad {
 #
 # Wallpaper:
 #
-output "*" bg ~/Pictures/Wallpapers/john-carmack.jpg fill
 
 #
 # Moving around:
@@ -216,6 +220,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Window title bar
+#
+default_border pixel
+default_floating_border pixel
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -224,13 +234,14 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while  ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
         statusline #ffffff
         background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
+    font pango:JetBrainsMono Nerd Font
 }
 
 include /etc/sway/config.d/*
