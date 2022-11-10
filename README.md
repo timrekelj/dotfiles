@@ -1,6 +1,10 @@
 # .dotfiles
 
 Currently, I only have config for:
+- sway
+- kitty
+- ranger
+- rofi
 - tmux
 - bash
 - [nvim](https://github.com/timrekelj/neotim)
