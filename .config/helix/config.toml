@@ -1,0 +1,19 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+mouse = true
+scrolloff = 3
+scroll-lines = 1
+cursorline = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+
+[editor.lsp]
+display-messages = true
+
+[editor.file-picker]
+hidden = false
