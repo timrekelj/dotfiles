@@ -1,9 +1,10 @@
-theme = "gruvbox"
+theme = "everforest_dark"
+# theme = "papercolor-light"
 
 [editor]
 line-number = "relative"
 mouse = true
-scrolloff = 3
+scrolloff = 6
 scroll-lines = 1
 cursorline = true
 
@@ -17,3 +18,9 @@ display-messages = true
 
 [editor.file-picker]
 hidden = false
+
+[keys.insert]
+A-h = "move_char_left"
+A-j = "move_line_down"
+A-k = "move_line_up"
+A-l = "move_char_right"
