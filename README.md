@@ -1,13 +1,10 @@
 # .dotfiles
 
 Currently, I only have config for:
-- sway
-- kitty
 - ranger
-- rofi
-- tmux
 - bash
 - [nvim](https://github.com/timrekelj/neotim)
+- terminator
 
 Install terminal theme with [Gogh](https://gogh-co.github.io/Gogh/) with command:
 ```
