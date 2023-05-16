@@ -76,10 +76,12 @@ set $menu rofi -show drun
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+Space exec $menu
+    # Current launcher with theme from https://github.com/adi1090x/rofi
+    # bindsym $mod+Space exec $menu
+    bindsym $mod+Space exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
+    # Resize them with right mousee button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
