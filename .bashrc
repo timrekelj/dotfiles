@@ -45,4 +45,8 @@ alias gpush='git push origin'
 export PATH="/home/timrekelj/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# fzf
+if command -v fzf-share >/dev/null; then
+    source "$(fzf-share)/key-bindings.bash"
+    source "$(fzf-share)/completion.bash"
+fi
