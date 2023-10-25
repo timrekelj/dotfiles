@@ -1,10 +1,5 @@
 # .bashrc
 
-# Start tmux automatically
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     tmux attach -t default || tmux new -s default
-# fi
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -23,30 +18,26 @@ function git_branch() {
         printf "%s" "($(git branch 2> /dev/null | awk '/\*/{print $2}')) ";
     fi
 }
-PS1='\[\e[32m\]\u \[\e[0m\]in \[\e[33m\]\W \[\e[0m\]$(git_branch)> '
+PS1='\[\e[34m\]\u \[\e[0m\]in \[\e[32m\]\W \[\e[0m\]$(git_branch)> '
 
 PATH="~/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:$PATH"
 
 # Aliases
 alias reset-software="killall gnome-software & rm -rf ~/.cache/gnome-software/"
-alias src_rc='source ~/.bashrc'
 alias ll='ls -lah'
-alias c='clear'
 alias tree='tree --dirsfirst -F'
 
-# Git aliases
-alias gb='git branch'
-alias gadd='git add .'
-alias gc='git commit -m'
-alias gpull='git pull origin'
-alias gpush='git push origin'
-
 # fnm
-export PATH="/home/timrekelj/.local/share/fnm:$PATH"
+export PATH="$HOME/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
 # fzf
-if command -v fzf-share >/dev/null; then
-    source "$(fzf-share)/key-bindings.bash"
-    source "$(fzf-share)/completion.bash"
-fi
+[ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
+
+# fnm
+export PATH="$HOME/.local/share/fnm:$PATH"
+eval "`fnm env`"
+
+# cargo
+. "$HOME/.cargo/env"
+export PATH="$HOME/.cargo/bin:$PATH"
