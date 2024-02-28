@@ -1,7 +1,7 @@
 #!/bin/sh
 OS=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2)
 
-source ./bash/logs.sh
+source ./utils/logs.sh
 
 # check if superuser
 if [ "$EUID" -eq 0 ]
@@ -47,10 +47,18 @@ mkdir -p ~/.ssh
 unzip ssh_keys.enc -d ~/.ssh
 success "Files decrypted\n"
 
+# run os specific commands (flatpak with fedora, rpm...)
+if [ $OS = "fedora" ]; then
+    info "Running fedora specific commands"
+    source ./os_scripts/fedora.sh
+fi
+
+exit 0
+
 # install the required packages
 info "Installing FNM"
 curl -fsSL https://fnm.vercel.app/install | bash
-fnm install latest
+fnm install --latest
 success "FNM installed\n"
 
 info "Installing rust and cargo"
@@ -61,12 +69,20 @@ info "Installing c and c++ compilers"
 if [ $OS = "fedora" ]; then
     sudo dnf install -y gcc-c++ gcc
 fi
+success "C and C++ compilers installed\n"
 
 info "Installing neovim"
 if [ $OS = "fedora" ]; then
     sudo dnf install -y neovim ripgrep
 fi
+success "Neovim installed\n"
 
 info "Setting up neovim"
 git clone git@github.com:timrekelj/neotim ~/.config/nvim
 success "Neovim configuration installed (may require further setup)\n"
+
+# copy config files
+info "Copying config files to their default locations"
+cp .bashrc ~/
+source ~/.bashrc
+cp -r wallpapers ~/Pictures/
