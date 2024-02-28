@@ -6,7 +6,7 @@ source ./utils/logs.sh
 # check if superuser
 if [ "$EUID" -eq 0 ]
   then error "Please do not run as with superuser privileges (you will be asked for the password when needed)"
-  exit
+  exit 1
 fi
 
 # ask for sudo validation
@@ -52,8 +52,6 @@ if [ $OS = "fedora" ]; then
     info "Running fedora specific commands"
     source ./os_scripts/fedora.sh
 fi
-
-exit 0
 
 # install the required packages
 info "Installing FNM"
