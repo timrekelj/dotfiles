@@ -56,6 +56,7 @@ fi
 # install the required packages
 info "Installing FNM"
 curl -fsSL https://fnm.vercel.app/install | bash
+source ~/.bashrc
 fnm install --latest
 success "FNM installed\n"
 
@@ -82,5 +83,5 @@ success "Neovim configuration installed (may require further setup)\n"
 # copy config files
 info "Copying config files to their default locations"
 cp .bashrc ~/
-source ~/.bashrc
 cp -r wallpapers ~/Pictures/
+source ~/.bashrc
