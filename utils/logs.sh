@@ -14,15 +14,15 @@ function success {
 }
 
 function warning {
-    echo -e "${ORANGE}⚠️ $1${NC}"
+    echo -e "${ORANGE}⚠️  $1${NC}"
 }
 
 function info {
-    echo -e "${GRAY}==== $1${NC}"
+    echo -e "${CYAN}==== $1${NC}"
 }
 
 function debug {
-    echo -e "${CYAN}==== $1${NC}"
+    echo -e "${ORANGE}==== $1${NC}"
 }
 
 function error {

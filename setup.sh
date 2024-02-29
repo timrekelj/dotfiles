@@ -44,6 +44,7 @@ if [ $OS = "fedora" ]; then
 fi
 info "Decrypting the files"
 mkdir -p ~/.ssh
+# encrypt with: zip --encrypt -r ssh_keys.zip ~/.ssh
 unzip ssh_keys.enc -d ~/.ssh
 success "Files decrypted\n"
 
@@ -55,14 +56,14 @@ fi
 
 # install the required packages
 info "Installing FNM"
-curl -fsSL https://fnm.vercel.app/install | bash
-source ~/.bashrc
-fnm install --latest
-success "FNM installed\n"
-
-info "Installing rust and cargo"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-success "Rust and cargo installed\n"
+if [ -x "$(command -v fnm)" ]; then
+    warning "FNM is already installed\n"
+else
+    curl -fsSL https://fnm.vercel.app/install | bash
+    source ~/.bashrc
+    fnm install --latest
+    success "FNM installed\n"
+fi
 
 info "Installing c and c++ compilers"
 if [ $OS = "fedora" ]; then
@@ -80,8 +81,14 @@ info "Setting up neovim"
 git clone git@github.com:timrekelj/neotim ~/.config/nvim
 success "Neovim configuration installed (may require further setup)\n"
 
+git config --global user.email "hello@timrekelj.si"
+git config --global user.name "Tim Rekelj"
+
+# copy font files to their default locations
+mkdir -p ~/.local/share/fonts
+cp -r fonts/* ~/.local/share/fonts/
+
 # copy config files
-info "Copying config files to their default locations"
+info "Copying config files to their default locations\n"
 cp .bashrc ~/
 cp -r wallpapers ~/Pictures/
-source ~/.bashrc

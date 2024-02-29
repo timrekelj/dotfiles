@@ -18,7 +18,7 @@ function git_branch() {
         printf "%s" "($(git branch 2> /dev/null | awk '/\*/{print $2}')) ";
     fi
 }
-PS1='\[\e[34m\]\u \[\e[0m\]in \[\e[30m\]\W \[\e[0m\]$(git_branch)> '
+PS1='\[\e[36m\]\u \[\e[0m\]in \[\e[32m\]\W \[\e[0m\]$(git_branch)> '
 
 # Aliases
 alias reset-software="killall gnome-software & rm -rf ~/.cache/gnome-software/"
@@ -55,4 +55,4 @@ eval "`fnm env`"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # odinlang
-export PATH="$HOME/Documents/programs/Odin/:$PATH"
+export PATH="$HOME/Programs/Odin/:$PATH"
