@@ -1,0 +1,62 @@
+set scrolloff=8
+set sidescrolloff=15
+set relativenumber
+set incsearch
+set ignorecase
+
+" --- Plugins ---
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+
+" --- Key mappings ---
+map <C-[> <Esc>
+
+" tab in normal mode
+nmap <tab> <Action>(NextTab)
+nmap <S-tab> <Action>(PreviousTab)
+
+" move cursor in insert mode
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+
+" splits
+nmap <space>sv <Action>(SplitVertically
+nmap <space>sc <Action>(UnsplitAll)
+nmap <space>v <Action>(NextSplitter)
+
+" copy and paste from clipboard
+vmap <space>y "+y
+vmap <space>d "+d
+nmap <space>y "+yy
+nmap <space>p "+p
+nmap <space>P "+P
+vmap <space>p "+p
+
+" IDE actions
+" run
+map <space>rr <Action>(Run)
+map <space>rc <Action>(ChooseRunConfiguration)
+map <space>rd <Action>(Debug)
+
+" show
+map <space>su <Action>(ShowUsages)
+
+" find (<C-S-f> is used for finding in files)
+map <space>fu <Action>(FindUsages)
+map <space>ff <Action>(Find)
+
+" other
+map <space>b <Action>(ToggleLineBreakpoint)
+
+" add caret above and below
+map <C-k> <Action>(EditorCloneCaretAbove)
+map <C-j> <Action>(EditorCloneCaretBelow)
+
+nmap <C-n> <Plug>NextOccurrence
+xmap <C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
