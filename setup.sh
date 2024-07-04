@@ -44,8 +44,9 @@ if [ $OS = "fedora" ]; then
 fi
 info "Decrypting the files"
 mkdir -p ~/.ssh
-# encrypt with: zip --encrypt -r ssh_keys.zip ~/.ssh
-unzip ssh_keys.enc -d ~/.ssh
+# encrypt with: zip --encrypt -r ssh_keys.enc .ssh
+unzip ssh_keys.enc
+mv .ssh ~
 success "Files decrypted\n"
 
 # run os specific commands (flatpak with fedora, rpm...)
