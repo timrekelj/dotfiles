@@ -1,4 +1,4 @@
-set scrolloff=8
+set scrolloff=10
 set sidescrolloff=15
 set relativenumber
 set incsearch
@@ -10,22 +10,14 @@ Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'
 
 " --- Key mappings ---
-map <C-[> <Esc>
+map <C-c> <Esc>
 
 " tab in normal mode
 nmap <tab> <Action>(NextTab)
-nmap <S-tab> <Action>(PreviousTab)
-
-" move cursor in insert mode
-imap <C-h> <Left>
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
+nmap <C-tab> <Action>(PreviousTab)
 
 " splits
-nmap <space>sv <Action>(SplitVertically
-nmap <space>sc <Action>(UnsplitAll)
-nmap <space>v <Action>(NextSplitter)
+nmap <space>n <Action>(NextSplitter)
 
 " copy and paste from clipboard
 vmap <space>y "+y
@@ -38,18 +30,24 @@ vmap <space>p "+p
 " IDE actions
 " run
 map <space>rr <Action>(Run)
+map <space>rs <Action>(Stop)
 map <space>rc <Action>(ChooseRunConfiguration)
 map <space>rd <Action>(Debug)
+
+" do
+map <space>df <Action>(QuickFix)
+map <space>dr <Action>(RenameElement)
 
 " show
 map <space>su <Action>(ShowUsages)
 
-" find (<C-S-f> is used for finding in files)
-map <space>fu <Action>(FindUsages)
-map <space>ff <Action>(Find)
+" git
+map <space>ga <Action>(Annotate)
+map <space>gr <Action>(Vcs.RollbackChangedLines)
 
 " other
-map <space>b <Action>(ToggleLineBreakpoint)
+map <space>bb <Action>(ToggleLineBreakpoint)
+map <space>br <Action>(Debugger.RemoveAllBreakpoints)
 
 " add caret above and below
 map <C-k> <Action>(EditorCloneCaretAbove)
@@ -59,4 +57,3 @@ nmap <C-n> <Plug>NextOccurrence
 xmap <C-n> <Plug>NextOccurrence
 xmap <C-x> <Plug>SkipOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
-
