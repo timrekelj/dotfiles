@@ -11,6 +11,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 " --- Key mappings ---
 map <C-c> <Esc>
+map <space>o o<Esc>
+map <space>O O<Esc>
 
 " tab in normal mode
 nmap <tab> <Action>(NextTab)
@@ -44,6 +46,10 @@ map <space>su <Action>(ShowUsages)
 " git
 map <space>ga <Action>(Annotate)
 map <space>gr <Action>(Vcs.RollbackChangedLines)
+
+" errors
+map <space>en <Action>(GotoNextError)
+map <space>ep <Action>(GotoPreviousError)
 
 " other
 map <space>bb <Action>(ToggleLineBreakpoint)
