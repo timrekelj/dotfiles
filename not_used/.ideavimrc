@@ -39,6 +39,7 @@ map <space>rd <Action>(Debug)
 " do
 map <space>df <Action>(QuickFix)
 map <space>dr <Action>(RenameElement)
+map <space>ds <Action>(SurroundWith)
 
 " show
 map <space>su <Action>(ShowUsages)
@@ -62,4 +63,3 @@ map <C-j> <Action>(EditorCloneCaretBelow)
 nmap <C-n> <Plug>NextOccurrence
 xmap <C-n> <Plug>NextOccurrence
 xmap <C-x> <Plug>SkipOccurrence
-xmap <C-p> <Plug>RemoveOccurrence
