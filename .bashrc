@@ -20,10 +20,16 @@ function git_branch() {
 }
 PS1='\[\e[36m\]\u \[\e[0m\]in \[\e[32m\]\W \[\e[0m\]$(git_branch)> '
 
+function find_project(){
+    cd $(find ~/Documents -type d -not -path '*/.*' -not -path '*/node_modules*' | fzf --border=rounded --height=20 --layout=reverse)
+}
+
 # Aliases
-alias reset-software="killall gnome-software & rm -rf ~/.cache/gnome-software/"
+alias reset-software='killall gnome-software & rm -rf ~/.cache/gnome-software/'
 alias ll='ls -lah'
 alias tree='tree --dirsfirst -F'
+
+alias fp=find_project
 
 alias gaa='git add .'
 alias gap='git add -p'
@@ -34,11 +40,6 @@ alias gs='git status'
 alias gpl='git pull origin'
 alias gph='git push origin'
 alias glog='git log --graph --decorate --all'
-
-alias c='clear'
-
-alias eb='nvim ~/.bashrc'
-alias sb='source ~/.bashrc'
 
 # Flatpak
 PATH="~/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:$PATH"
