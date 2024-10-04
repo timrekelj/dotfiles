@@ -43,6 +43,7 @@ map <space>ds <Action>(SurroundWith)
 
 " show
 map <space>su <Action>(ShowUsages)
+map <space>se <Action>(ShowErrorDescription)
 
 " git
 map <space>ga <Action>(Annotate)
