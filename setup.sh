@@ -85,6 +85,21 @@ success "Neovim configuration installed (may require further setup)\n"
 git config --global user.email "hello@timrekelj.si"
 git config --global user.name "Tim Rekelj"
 
+# Set some keybindings
+# Switch to workspace
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "[\"<Super>F6\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "[\"<Super>F7\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "[\"<Super>F8\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "[\"<Super>F9\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "[\"<Super>F10\"]"
+
+# Move to workspace
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "[\"<Super><Shift>F6\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "[\"<Super><Shift>F7\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "[\"<Super><Shift>F8\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "[\"<Super><Shift>F9\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "[\"<Super><Shift>F10\"]"
+
 # copy config files
 info "Copying config files to their default locations\n"
 cp .bashrc ~/
