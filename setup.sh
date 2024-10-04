@@ -85,10 +85,6 @@ success "Neovim configuration installed (may require further setup)\n"
 git config --global user.email "hello@timrekelj.si"
 git config --global user.name "Tim Rekelj"
 
-# copy font files to their default locations
-mkdir -p ~/.local/share/fonts
-cp -r fonts/* ~/.local/share/fonts/
-
 # copy config files
 info "Copying config files to their default locations\n"
 cp .bashrc ~/
