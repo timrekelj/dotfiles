@@ -72,16 +72,6 @@ if [ $OS = "fedora" ]; then
 fi
 success "C and C++ compilers installed\n"
 
-info "Installing neovim"
-if [ $OS = "fedora" ]; then
-    sudo dnf install -y neovim ripgrep
-fi
-success "Neovim installed\n"
-
-info "Setting up neovim"
-git clone git@github.com:timrekelj/neotim ~/.config/nvim
-success "Neovim configuration installed (may require further setup)\n"
-
 git config --global user.email "hello@timrekelj.si"
 git config --global user.name "Tim Rekelj"
 
